@@ -1,9 +1,26 @@
 const fs = require('fs')
 
-const book = {
-    title: 'Ego is the Enemy',
-    author: 'Ryan Holiday'
-}
+const sampleData = { "name": "Andrew", "planet": "Earth", "age": 27}
 
-const bookJSON = JSON.stringify(book)
-fs.writeFileSync('1-json.json', bookJSON)
+const dataBuffer = fs.readFileSync('1-json.json')
+// Load JSON data in
+const dataJSON = dataBuffer.toString()
+// Convert to string
+const user = JSON.parse(dataJSON)
+
+user.name = 'Alex'
+user.age = 29
+
+const userJSON = JSON.stringify(user)
+fs.writeFileSync('1-json.json', userJSON)
+
+
+
+
+// const dataBuffer = fs.readFileSync('1-json.json')
+// const dataJSON = dataBuffer.toString()
+// const data = JSON.parse(dataJSON)
+// console.log(data.title)
+
+
+
